@@ -25,6 +25,13 @@ steps:
   - script: npm run test:ci-unit
     displayName: 'Run CI Unit Tests'
 
+  - powershell: |
+      $flag = "$(Agent.OS)".toLower() + "unit"
+      npm run codecov -- -t $env:TOKEN -c -F $flag
+    displayName: 'Publish codecov'
+    env:
+      TOKEN: $(CODE_COV_GENERATOR_NK)
+
   # Publish CI test results
   - task: PublishTestResults@2
     inputs:
@@ -36,6 +43,13 @@ steps:
   # test project
   - script: npm run test:ci-e2e
     displayName: 'Run CI E2E Tests'
+
+  - powershell: |
+      $flag = "$(Agent.OS)".toLower() + "e2e"
+      npm run codecov -- -t $env:TOKEN -c -F $flag
+    displayName: 'Publish codecov'
+    env:
+      TOKEN: $(CODE_COV_GENERATOR_NK)
 
   # Publish CI test results
   - task: PublishTestResults@2

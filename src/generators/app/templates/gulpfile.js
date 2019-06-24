@@ -3,8 +3,9 @@ const gulp = require('gulp');
 const path = require('path');
 const execa = require('execa');
 
+
 const SRC_DIR = 'src';
-const OUT_DIR = 'build';
+const OUT_DIR = SRC_DIR;
 const TEST_RUNNER = 'jest';
 
 /**
@@ -19,11 +20,13 @@ const runner = (args, cmd) => async env => {
 
 const CIJestRunner = runner(['--ci', ...process.argv.slice(3)], TEST_RUNNER);
 
+
 async function clean() {
 
     let promises = Promise.all([
         fs.remove('junit.xml'),
-        fs.remove('build')
+        fs.remove('build'),
+        fs.remove('coverage'),
 
     ]);
 
@@ -36,8 +39,6 @@ function copyStatic() {
         'license',
         'README.md',
         'package.json',
-        'src/**',
-        '!**/.tmp/**'
     ];
 
     return gulp.src(SRC_FILES, { dot: true }).pipe(gulp.dest(OUT_DIR));
