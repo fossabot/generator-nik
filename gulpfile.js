@@ -20,7 +20,7 @@ const runner = (args, cmd) => async env => {
 };
 
 const CIJestRunner = runner(['--ci', ...process.argv.slice(3)], TEST_RUNNER);
-const codeCovRunner = runner(['-t', env.TOKEN, '-F', env['Agent.OS'].concat(env['TEST_TYPE'])], COVERAGE_REPORTER);
+
 
 async function clean() {
 
@@ -57,7 +57,8 @@ async function testCIE2e() {
 }
 
 async function codecov() {
-    return await codeCovRunner({});
+    const codecovRunner = runner(['-t', env.TOKEN, env['Agent.OS'].toLowerCase().concat(env['TEST_TYPE'])], TEST_RUNNER);
+    await codecovRunner();
 }
 
 const build = gulp.series(clean, copyStatic);
