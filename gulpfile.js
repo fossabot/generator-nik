@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const gulp = require('gulp');
 const path = require('path');
 const execa = require('execa');
-const {env} = process;
+
 
 const SRC_DIR = 'src';
 const OUT_DIR = 'build';
