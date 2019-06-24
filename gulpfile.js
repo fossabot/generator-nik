@@ -5,7 +5,7 @@ const execa = require('execa');
 
 
 const SRC_DIR = 'src';
-const OUT_DIR = 'build';
+const OUT_DIR = SRC_DIR;
 const TEST_RUNNER = 'jest';
 
 /**
@@ -39,7 +39,6 @@ function copyStatic() {
         'license',
         'README.md',
         'package.json',
-        'src/**',
     ];
 
     return gulp.src(SRC_FILES, { dot: true }).pipe(gulp.dest(OUT_DIR));
