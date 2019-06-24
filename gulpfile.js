@@ -7,7 +7,6 @@ const {env} = process;
 const SRC_DIR = 'src';
 const OUT_DIR = 'build';
 const TEST_RUNNER = 'jest';
-const COVERAGE_REPORTER = 'codecov';
 
 /**
  * Runner for different jest environments, configurable using the JEST_ENV environment variable.
@@ -56,11 +55,6 @@ async function testCIE2e() {
 
 }
 
-async function codecov() {
-    const codecovRunner = runner(['-t', env.TOKEN, env['Agent.OS'].toLowerCase().concat(env['TEST_TYPE'])], TEST_RUNNER);
-    await codecovRunner();
-}
-
 const build = gulp.series(clean, copyStatic);
 
 module.exports = {
@@ -69,5 +63,4 @@ module.exports = {
     copyStatic,
     testCIUnit,
     testCIE2e,
-    codecov
 };
