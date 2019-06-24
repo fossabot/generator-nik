@@ -16,6 +16,10 @@ steps:
     displayName: 'npm install'
     inputs:
       verbose: false
+#
+#  # codecov
+#  - script: npm install -g codecov
+#    displayName: 'Run Build'
 
   # build project
   - script: npm run build
@@ -27,7 +31,7 @@ steps:
 
   - powershell: |
       $flag = "$(Agent.OS)".toLower() + "unit"
-      npx codecov -t $env:TOKEN -F $flag
+      npm run codecov -- -t $env:TOKEN -F $flag
     displayName: 'Publish codecov'
     env:
       TOKEN: $(CODE_COV_GENERATOR_NK)
@@ -46,7 +50,7 @@ steps:
 
   - powershell: |
       $flag = "$(Agent.OS)".toLower() + "e2e"
-      npx codecov -t $env:TOKEN -F $flag
+      npm run codecov -- -t $env:TOKEN -F $flag
     displayName: 'Publish codecov'
     env:
       TOKEN: $(CODE_COV_GENERATOR_NK)
