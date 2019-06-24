@@ -16,10 +16,6 @@ steps:
     displayName: 'npm install'
     inputs:
       verbose: false
-#
-#  # codecov
-#  - script: npm install -g codecov
-#    displayName: 'Run Build'
 
   # build project
   - script: npm run build
