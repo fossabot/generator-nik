@@ -1,3 +1,4 @@
+[![Board Status](https://nikkijdesigns.visualstudio.com/a49f0ab9-3fb1-4043-959d-2c8067911c05/9dbc12fe-85b8-411f-b76a-9c2a3f6b830a/_apis/work/boardbadge/e5cc10e6-f07b-4f8b-b498-0c50364a3a5b)](https://nikkijdesigns.visualstudio.com/a49f0ab9-3fb1-4043-959d-2c8067911c05/_boards/board/t/9dbc12fe-85b8-411f-b76a-9c2a3f6b830a/Microsoft.RequirementCategory)
 # generator-nj
 
 ## Motivation
