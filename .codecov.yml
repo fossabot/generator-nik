@@ -1,14 +1,14 @@
-coverage:
-  status:
-    project:
-      default: off
-      unit:
-        target: 80%
-        flags:
-          - linuxunit
-          - windows_ntunit
-      e2e:
-        target: 80%
-        flags:
-          - linuxe2e
-          - windows_nte2e
+#coverage:
+#  status:
+#    project:
+#      default: off
+#      unit:
+#        target: 80%
+#        flags:
+#          - linuxunit
+#          - windows_ntunit
+#      e2e:
+#        target: 80%
+#        flags:
+#          - linuxe2e
+#          - windows_nte2e
